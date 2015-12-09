@@ -7,6 +7,7 @@ namespace ContosoUniversity.Entities
         public string Name { get; set; }
         public decimal Budget { get; set; }
         public DateTime StartDate { get; set; }
-        public int? InstructorId { get; set; } 
+        public int? InstructorId { get; set; }
+        public virtual Instructor Instructor { get; set; }
     }
 }
