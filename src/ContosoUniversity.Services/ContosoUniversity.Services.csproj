@@ -39,7 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IStudentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContosoUniversity.Data\ContosoUniversity.Data.csproj">
+      <Project>{0270fcdc-9d82-492e-acfe-a73bce0757cd}</Project>
+      <Name>ContosoUniversity.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ContosoUniversity.Entities\ContosoUniversity.Entities.csproj">
+      <Project>{b4898935-a953-4e27-b5c7-29227fa256a9}</Project>
+      <Name>ContosoUniversity.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

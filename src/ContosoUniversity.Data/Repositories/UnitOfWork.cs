@@ -11,7 +11,7 @@ namespace ContosoUniversity.Data.Repositories
     {
         private ContosoUniversityContext _context = new ContosoUniversityContext("ContosoUniversity");
 
-        public void Commit()
+        public void SaveChanges()
         {
             _context.SaveChanges();
         }
