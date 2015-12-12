@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace ContosoUniversity.Data.Repositories
 {
-    class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
-        private ContosoUniversityContext _context = new ContosoUniversityContext("ContosoUniversity");
+        private readonly ContosoUniversityContext context;
+
+        public UnitOfWork(ContosoUniversityContext context)
+        {
+            this.context = context;
+        }
 
         public void SaveChanges()
         {
-            _context.SaveChanges();
+            context.SaveChanges();
         }
 
 
@@ -24,7 +29,7 @@ namespace ContosoUniversity.Data.Repositories
             {
                 if (disposing)
                 {
-                    _context.Dispose();
+                    context.Dispose();
                 }
             }
             _disposed = true;

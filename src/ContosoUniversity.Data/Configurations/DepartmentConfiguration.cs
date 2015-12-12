@@ -9,7 +9,7 @@ namespace ContosoUniversity.Data.Configurations
         {
             HasKey(e => e.Id);
             Property(e => e.Name).IsRequired().HasMaxLength(256);
-            Property(e => e.Budget).IsRequired().HasColumnType("Currency");
+            Property(e => e.Budget).IsRequired().HasColumnType("money");
             Property(e => e.StartDate).IsRequired();
         }
     }

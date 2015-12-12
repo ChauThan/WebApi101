@@ -12,7 +12,12 @@ namespace ContosoUniversity.Data.Repositories
     {
         internal ContosoUniversityContext Context;
         internal DbSet<TEntity> DbSet;
-        
+
+        public GenericRepository(ContosoUniversityContext context)
+        {
+            this.Context = context;
+            this.DbSet = context.Set<TEntity>();
+        }
 
         public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "")
         {

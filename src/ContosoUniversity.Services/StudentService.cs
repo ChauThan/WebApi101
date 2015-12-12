@@ -9,8 +9,8 @@ namespace ContosoUniversity.Services
 {
     public class StudentService : IStudentService
     {
-        private IUnitOfWork unitOfWork;
-        private IGenericRepository<Student> studentRepository;
+        private readonly IUnitOfWork unitOfWork;
+        private readonly IGenericRepository<Student> studentRepository;
 
         public StudentService(IUnitOfWork unitOfWork, IGenericRepository<Student> studentRepository)
         {

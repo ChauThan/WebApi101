@@ -11,7 +11,9 @@ namespace ContosoUniversity.Data.Repositories
 {
     public class ContosoUniversityContext : DbContext
     {
-        public ContosoUniversityContext(string connectionStringName) : base(connectionStringName) { }
+        public ContosoUniversityContext() : base("ContosoUniversity")
+        {
+        }
 
         #region Entites
 
