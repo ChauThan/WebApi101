@@ -1,6 +1,9 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Http;
+using AutoMapper;
 using ContosoUniversity.Entities;
 using ContosoUniversity.Services.Interface;
+using ContosoUniversity.WebApi.ViewModels;
 
 namespace ContosoUniversity.WebApi.Controllers
 {
@@ -18,8 +21,9 @@ namespace ContosoUniversity.WebApi.Controllers
         public IHttpActionResult Get()
         {
             var students = studentService.GetStudents();
+            var model = Mapper.Map<IEnumerable<StudentModelView>>(students);
 
-            return Ok(students);
+            return Ok(model);
 
         }
 
@@ -27,22 +31,31 @@ namespace ContosoUniversity.WebApi.Controllers
         public IHttpActionResult Get(int id)
         {
             var student = studentService.GetStudent(id);
-            return Ok(student);
+            var model = Mapper.Map<StudentModelView>(student);
+
+            return Ok(model);
         }
 
         // POST: api/Student
-        public IHttpActionResult Post(Student student)
+        public IHttpActionResult Post(StudentModelView model)
         {
+            var student = Mapper.Map<Student>(model);
             studentService.CreateStudent(student);
+            Mapper.Map(student, model);
 
-            return Created(Url.Link("DefaultApi", new { controller = "Student", id = student.Id }), student);
+            return Created(Url.Link("DefaultApi", new { controller = "Student", id = student.Id }), model);
         }
 
         // PUT: api/Student/5
-        public IHttpActionResult Put(int id, Student student)
+        public IHttpActionResult Put(int id, StudentModelView model)
         {
+            model.Id = id;
+
+            var student = studentService.GetStudent(id);
+            Mapper.Map(model, student);
+
             studentService.UpdateStudent(student);
-            return Ok(student);
+            return Ok(model);
         }
 
         // DELETE: api/Student/5

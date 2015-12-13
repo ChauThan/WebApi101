@@ -12,7 +12,6 @@
             $http.post('api/student', $scope.student)
                 .success(function (data, status, headers, config) {
                     $scope.student = data;
-                    $location.path('/student');
                 })
                 .error(function (data, status, headers, config) {
                     console.log(data);

@@ -1,10 +1,5 @@
-﻿using System.Data.Entity;
-using System.Web.Http;
-using Autofac;
-using Autofac.Integration.WebApi;
-using ContosoUniversity.Data.Repositories;
-using ContosoUniversity.Services;
-using ContosoUniversity.Services.Interface;
+﻿using System.Web.Http;
+using ContosoUniversity.WebApi.AutoMappers;
 
 namespace ContosoUniversity.WebApi
 {
@@ -14,6 +9,8 @@ namespace ContosoUniversity.WebApi
         {
             // Configure Autofac
             AutofacWebapiConfig.Initialize(GlobalConfiguration.Configuration);
+
+            AutoMapperConfiguration.Configure();
         }
 
     }
