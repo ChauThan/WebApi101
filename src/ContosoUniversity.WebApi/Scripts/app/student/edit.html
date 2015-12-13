@@ -1,0 +1,25 @@
+﻿<div class="row">
+    <form class="form-horizontal" role="form" name="editStudentForm" data-ng-submit="updateStudent()">
+        <div class="form-group">
+            <div class="col-xs-8">
+                <label class="control-label">Last Name</label>
+                <input class="form-control" name="lastName" type="text" ng-model="student.LastName"
+                       validate-on="blur" required required-message="'Last name is required'">
+            </div>
+            <div class="col-xs-8">
+                <label class="control-label">First Mid Name</label>
+                <input class="form-control" name="firstMidName" type="text" ng-model="student.FirstMidName"
+                       validate-on="blur" required required-message="'First Mid Name is required'">
+            </div>
+            <div class="col-xs-8">
+                <label class="control-label">Enrollment Date</label>
+                <input class="form-control" name="enrollmentDate" type="text" ng-model="student.EnrollmentDate">
+            </div>
+
+            <div class="col-xs-8">
+                <label class="control-label"></label>
+                <input type="submit" class="btn btn-primary" value="Update" />
+            </div>
+        </div>
+    </form>
+</div>

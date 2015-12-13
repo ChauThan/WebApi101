@@ -1,0 +1,33 @@
+﻿<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Students</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <a ng-href="#/student/add" class="btn btn-primary">New</a>
+                <br /> <br />
+                <table ng-table="tableParams" class="ui small table segment">
+                    <tr ng-repeat="student in Students">
+                        <td data-title="'Name'">
+                            {{student.LastName}}
+                        </td>
+                        <td data-title="'FirstMidName'">
+                            {{student.FirstMidName}}
+                        </td>
+                        <td style="width: 4%;">
+                            <a ng-href="#/student/edit/{{student.Id}}"><i class="glyphicon glyphicon-edit"></i></a>
+                        </td>
+                        <td style="width: 4%;">
+                            <a data-ng-click="deleteStudent(student.Id)"><i class="glyphicon glyphicon-trash"></i></a>
+                        </td>
+                    </tr>
+                    <tr ng-hide="Students">
+                        <td colspan="4" class="danger">There are no students</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
